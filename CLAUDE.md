@@ -1,33 +1,33 @@
 # CLAUDE.md — Plugin Jurídico (Brasil)
 
-## Project Overview
+## Visão Geral
 
-A Claude plugin (pt-BR) for automating Brazilian legal workflows. It provides commands and skills for contract review, NDA triage, LGPD compliance checks, legal risk assessment, canned responses, and meeting briefings. The plugin runs within Claude (Cowork/Claude Code) and integrates with external tools via MCP connectors.
+Plugin Claude (pt-BR) para automação de fluxos jurídicos brasileiros. Oferece comandos e skills para revisão contratual, triagem de NDAs, checagem de conformidade LGPD, avaliação de risco jurídico, respostas padronizadas e briefings de reuniões. Funciona no Claude (Cowork/Claude Code) e integra ferramentas externas via conectores MCP.
 
-**Version:** 0.2.0
-**Language:** Portuguese (pt-BR) — all user-facing content must be in pt-BR
-**Author:** prof-ramos
+**Versão:** 0.2.0
+**Idioma:** Português (pt-BR) — todo conteúdo voltado ao usuário deve ser em pt-BR
+**Autor:** prof-ramos
 
-> **Critical disclaimer:** This plugin assists legal workflows but does NOT provide legal advice. All outputs must be reviewed by a qualified legal professional.
+> **Aviso importante:** este plugin auxilia fluxos jurídicos, mas **não presta consultoria jurídica**. Todo output deve ser revisado por profissional habilitado.
 
-## Repository Structure
+## Estrutura do Repositório
 
 ```
 .
-├── CLAUDE.md                  # This file — project guide for AI assistants
-├── README.md                  # Quick-start guide (pt-BR)
-├── PRD.md                     # Product requirements document
-├── CONNECTORS.md              # MCP connector specifications
+├── CLAUDE.md                  # Este arquivo — guia do projeto para assistentes de IA
+├── README.md                  # Guia rápido (pt-BR)
+├── PRD.md                     # Documento de requisitos do produto
+├── CONNECTORS.md              # Especificações de conectores MCP
 ├── .claude-plugin/
-│   └── plugin.json            # Plugin metadata (name, version, description)
-├── .mcp.json                  # MCP server configuration
-├── commands/                  # User-facing slash commands (YAML frontmatter + markdown)
-│   ├── review-contract-br.md  # /review-contract-br — contract review with playbook
-│   ├── triage-nda-br.md       # /triage-nda-br — NDA triage (green/yellow/red)
-│   ├── vendor-check-br.md     # /vendor-check-br — vendor agreement status
-│   ├── brief-br.md            # /brief-br — legal briefing (daily/topic/incident)
-│   └── respond-br.md          # /respond-br — standardized responses from templates
-└── skills/                    # Reusable skill components (YAML frontmatter + markdown)
+│   └── plugin.json            # Metadados do plugin (nome, versão, descrição)
+├── .mcp.json                  # Configuração de servidores MCP
+├── commands/                  # Comandos de usuário (YAML frontmatter + markdown)
+│   ├── review-contract-br.md  # /review-contract-br — revisão contratual com playbook
+│   ├── triage-nda-br.md       # /triage-nda-br — triagem de NDA (verde/amarelo/vermelho)
+│   ├── vendor-check-br.md     # /vendor-check-br — status contratual por fornecedor
+│   ├── brief-br.md            # /brief-br — briefing jurídico (diário/tema/incidente)
+│   └── respond-br.md          # /respond-br — respostas padronizadas a partir de templates
+└── skills/                    # Componentes reutilizáveis de conhecimento (YAML frontmatter + markdown)
     ├── contract-review-br/SKILL.md
     ├── nda-triage-br/SKILL.md
     ├── lgpd-compliance/SKILL.md
@@ -36,128 +36,128 @@ A Claude plugin (pt-BR) for automating Brazilian legal workflows. It provides co
     └── meeting-briefing-br/SKILL.md
 ```
 
-## Architecture
+## Arquitetura
 
-This is a **documentation-only plugin** — no compiled code, no build system, no runtime dependencies. The entire plugin consists of markdown files with YAML frontmatter that define commands and skills for the Claude plugin system.
+Este é um **plugin somente de documentação** — sem código compilado, sem sistema de build, sem dependências de runtime. O plugin inteiro consiste em arquivos markdown com YAML frontmatter que definem comandos e skills para o sistema de plugins do Claude.
 
-### Key concepts
+### Conceitos-chave
 
-- **Commands** (`commands/*.md`): User-facing entry points invoked as slash commands. Each file has YAML frontmatter with `description` and `argument-hint`, followed by workflow and output specifications.
-- **Skills** (`skills/*/SKILL.md`): Reusable knowledge components that commands draw upon. Each has YAML frontmatter with `name` and `description`, followed by checklists, frameworks, and principles.
-- **Playbook** (`.claude/legal-br.local.md`): Organization-specific local file (not committed) containing default positions, acceptable ranges, escalation triggers, drafting templates, and risk matrices.
-- **MCP connectors**: Tool-agnostic integrations referenced via `~~category` placeholders (e.g., `~~cloud storage`, `~~chat`, `~~CLM`).
+- **Comandos** (`commands/*.md`): Pontos de entrada do usuário, invocados como slash commands. Cada arquivo possui YAML frontmatter com `description` e `argument-hint`, seguido de especificações de workflow e output.
+- **Skills** (`skills/*/SKILL.md`): Componentes de conhecimento reutilizáveis usados pelos comandos. Cada um possui YAML frontmatter com `name` e `description`, seguido de checklists, frameworks e princípios.
+- **Playbook** (`.claude/legal-br.local.md`): Arquivo local específico da organização (não commitado) contendo posições padrão, faixas aceitáveis, gatilhos de escalonamento, templates de redação e matrizes de risco.
+- **Conectores MCP**: Integrações agnósticas a ferramentas, referenciadas via placeholders `~~categoria` (ex.: `~~cloud storage`, `~~chat`, `~~CLM`).
 
-### How commands and skills relate
+### Relação entre comandos e skills
 
-Commands orchestrate user workflows and use skills as building blocks. For example, `/review-contract-br` relies on `contract-review-br`, `lgpd-compliance`, and `legal-risk-assessment-br` skills.
+Comandos orquestram fluxos de trabalho e usam skills como blocos de construção. Por exemplo, `/review-contract-br` utiliza as skills `contract-review-br`, `lgpd-compliance` e `legal-risk-assessment-br`.
 
-## File Format Conventions
+## Convenções de Formato de Arquivo
 
-### Command files (`commands/*.md`)
-
-```yaml
----
-description: Short description in pt-BR
-argument-hint: "<usage hint>"
----
-
-# /command-name
-
-[Workflow steps, output format, rules]
-```
-
-### Skill files (`skills/*/SKILL.md`)
+### Arquivos de comando (`commands/*.md`)
 
 ```yaml
 ---
-name: skill-name
-description: What the skill does, in pt-BR
+description: Descrição curta em pt-BR
+argument-hint: "<dica de uso>"
 ---
 
-# Skill — Display Name
+# /nome-do-comando
 
-[Principles, checklists, frameworks, output format]
+[Etapas do workflow, formato de saída, regras]
 ```
 
-## Key Conventions
+### Arquivos de skill (`skills/*/SKILL.md`)
 
-### Risk classification
+```yaml
+---
+name: nome-da-skill
+description: O que a skill faz, em pt-BR
+---
 
-All risk assessments use a three-tier system:
-- **VERDE** (green): Acceptable, no material impact
-- **AMARELO** (yellow): Negotiate, moderate impact, standard alternatives exist
-- **VERMELHO** (red): Escalate, significant financial/reputational/regulatory/operational impact
+# Skill — Nome de Exibição
 
-### Brazilian legal scope
+[Princípios, checklists, frameworks, formato de saída]
+```
 
-The plugin prioritizes Brazilian legal standards:
-- **LGPD** (Lei 13.709/2018) — data protection, incidents, operators/sub-operators
-- **Código Civil** — contractual practices (penalties, interest/adjustment, jurisdiction/arbitration)
-- **CDC** — consumer protection when applicable (abusive clauses)
-- Jurisprudence: only cite when a reliable source is available via connectors; otherwise mark as hypothesis for validation
+## Convenções Principais
 
-### Content guidelines
+### Classificação de risco
 
-- All user-facing text in **pt-BR**
-- Always signal uncertainty explicitly — never fabricate legal references
-- Always include **next steps** and **escalation triggers** in outputs
-- Minimize sensitive data retention
-- Require verifiable citations when referencing legal sources
-- Mark outputs as drafts when playbook templates are not available
+Todas as avaliações de risco usam um sistema de três níveis:
+- **VERDE**: Aceitável; sem impacto material
+- **AMARELO**: Negociar; impacto moderado; existem alternativas padrão
+- **VERMELHO**: Escalar; potencial impacto relevante (financeiro, reputacional, regulatório, operacional)
 
-## MCP Connectors
+### Escopo jurídico brasileiro
 
-The plugin is **tool-agnostic**. Placeholders in files reference categories, not specific products:
+O plugin prioriza padrões legais brasileiros:
+- **LGPD** (Lei 13.709/2018) — proteção de dados, incidentes, operadores/suboperadores
+- **Código Civil** — práticas contratuais (multas, juros/correção, foro/arbitragem)
+- **CDC** — proteção ao consumidor quando aplicável (cláusulas abusivas)
+- Jurisprudência: citar apenas quando houver fonte confiável via conectores; caso contrário, sinalizar como hipótese para validação
 
-| Placeholder | Examples |
+### Diretrizes de conteúdo
+
+- Todo texto voltado ao usuário em **pt-BR**
+- Sempre sinalizar incerteza explicitamente — nunca fabricar referências legais
+- Sempre incluir **próximos passos** e **gatilhos de escalonamento** nos outputs
+- Minimizar retenção de dados sensíveis
+- Exigir citações verificáveis ao referenciar fontes jurídicas
+- Marcar outputs como rascunho quando templates do playbook não estiverem disponíveis
+
+## Conectores MCP
+
+O plugin é **agnóstico a ferramentas**. Placeholders nos arquivos referenciam categorias, não produtos específicos:
+
+| Placeholder | Exemplos |
 |---|---|
 | `~~cloud storage` | Box, SharePoint, Google Drive, Egnyte |
 | `~~office suite` | Microsoft 365, Google Workspace |
 | `~~chat` | Slack, Teams |
 | `~~project tracker` | Jira, Confluence, Asana |
-| `~~CLM` | Contract Lifecycle Management (optional) |
-| `~~CRM` | CRM system (optional) |
-| `~~e-signature` | E-signature platform (optional) |
-| `~~github reader` | Zread MCP Server (optional) |
+| `~~CLM` | Contract Lifecycle Management (opcional) |
+| `~~CRM` | Sistema CRM (opcional) |
+| `~~e-signature` | Plataforma de assinatura eletrônica (opcional) |
+| `~~github reader` | Zread MCP Server (opcional) |
 
-Configuration lives in `.mcp.json`. Currently configured: `chat` (placeholder) and `zread` (Z.AI GitHub reader).
+A configuração fica em `.mcp.json`. Atualmente configurados: `chat` (placeholder) e `zread` (leitor GitHub da Z.AI).
 
-## Development Workflow
+## Fluxo de Desenvolvimento
 
-### There is no build, test, or lint step
+### Não há etapas de build, teste ou lint
 
-This project has no code to compile, no tests to run, and no linter configuration. All content is markdown.
+Este projeto não possui código para compilar, testes para rodar, nem configuração de linter. Todo o conteúdo é markdown.
 
-### Adding a new command
+### Adicionar um novo comando
 
-1. Create `commands/<command-name>.md` with YAML frontmatter (`description`, `argument-hint`)
-2. Add the command heading as `# /<command-name>`
-3. Document workflow steps, output format, and rules
-4. Update `README.md` to list the new command
+1. Criar `commands/<nome-do-comando>.md` com YAML frontmatter (`description`, `argument-hint`)
+2. Adicionar o heading do comando como `# /<nome-do-comando>`
+3. Documentar etapas do workflow, formato de saída e regras
+4. Atualizar `README.md` listando o novo comando
 
-### Adding a new skill
+### Adicionar uma nova skill
 
-1. Create `skills/<skill-name>/SKILL.md` with YAML frontmatter (`name`, `description`)
-2. Add the skill heading as `# Skill — Display Name`
-3. Document principles, checklists, and output format
-4. Update `README.md` to list the new skill
+1. Criar `skills/<nome-da-skill>/SKILL.md` com YAML frontmatter (`name`, `description`)
+2. Adicionar o heading como `# Skill — Nome de Exibição`
+3. Documentar princípios, checklists e formato de saída
+4. Atualizar `README.md` listando a nova skill
 
-### Updating plugin metadata
+### Atualizar metadados do plugin
 
-Edit `.claude-plugin/plugin.json` — bump `version` when making significant changes.
+Editar `.claude-plugin/plugin.json` — incrementar `version` ao fazer mudanças significativas.
 
 ## Roadmap
 
-- **MVP (current):** `/review-contract-br` + `/triage-nda-br` + playbook
-- **Phase 2:** `/respond-br` + `/brief-br`
-- **Phase 3:** `/vendor-check-br` with MCP connectors
+- **MVP (atual):** `/review-contract-br` + `/triage-nda-br` + playbook
+- **Fase 2:** `/respond-br` + `/brief-br`
+- **Fase 3:** `/vendor-check-br` com conectores MCP
 
-## Important Reminders for AI Assistants
+## Lembretes Importantes para Assistentes de IA
 
-1. **Language:** Always produce content in pt-BR for this plugin
-2. **No legal advice:** Include disclaimers; outputs are aids, not counsel
-3. **No secrets in git:** Never commit API keys or credentials (use environment variables)
-4. **Playbook is local:** `.claude/legal-br.local.md` is org-specific and should not be committed
-5. **Tool-agnostic:** Use `~~category` placeholders, never hardcode specific tool names in commands/skills
-6. **Citation integrity:** Never fabricate legal references; signal uncertainty when sources are unavailable
-7. **Minimal changes:** This is a documentation plugin — keep files focused and concise
+1. **Idioma:** Sempre produzir conteúdo em pt-BR para este plugin
+2. **Não é consultoria jurídica:** Incluir disclaimers; outputs são auxílios, não parecer jurídico
+3. **Sem segredos no git:** Nunca commitar chaves de API ou credenciais (usar variáveis de ambiente)
+4. **Playbook é local:** `.claude/legal-br.local.md` é específico da organização e não deve ser commitado
+5. **Agnóstico a ferramentas:** Usar placeholders `~~categoria`, nunca hardcodar nomes de ferramentas em comandos/skills
+6. **Integridade de citações:** Nunca fabricar referências legais; sinalizar incerteza quando fontes não estiverem disponíveis
+7. **Mudanças mínimas:** Este é um plugin de documentação — manter arquivos focados e concisos
