@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "chat": {
+      "command": "echo",
+      "args": ["MCP chat placeholder"],
+      "env": {}
+    }
+  }
+}
