@@ -17,5 +17,23 @@ Exemplos:
 - CLM: `~~CLM` (opcional)
 - CRM: `~~CRM` (opcional)
 - E-signature: `~~e-signature` (opcional)
+- GitHub/Open-source reader: `~~github reader` (via **Zread MCP Server**, opcional)
 
 > Observação: integrações específicas do Brasil (ex.: SEI, SAJ, eproc) **não são garantidas** no plugin puro; podem exigir MCP servers dedicados.
+
+## Zread MCP Server (Z.AI) — leitura de repositórios GitHub
+
+O **Zread MCP Server** permite que clientes compatíveis (Claude Code, Cline etc.) acessem e analisem repositórios open-source do GitHub via MCP.
+
+Ferramentas típicas expostas:
+- `search_doc` — busca docs, issues/PRs recentes e contexto do repo
+- `get_repo_structure` — lista estrutura de diretórios/arquivos
+- `read_file` — lê arquivo específico
+
+Exemplo (Claude Code):
+
+```bash
+claude mcp add -s user -t http zread https://api.z.ai/api/mcp/zread/mcp --header "Authorization: Bearer <ZAI_API_KEY>"
+```
+
+> Importante: **não** commitar chaves no git. Use variáveis de ambiente/secret store.
