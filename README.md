@@ -26,12 +26,24 @@ Foco: acelerar revisão contratual, triagem de NDAs e geração de respostas/bri
 
 ## Skills
 
-- `contract-review-br`
-- `nda-triage-br`
-- `lgpd-compliance`
-- `legal-risk-assessment-br`
-- `canned-responses-br`
-- `meeting-briefing-br`
+### Skills jurídicas (pt-BR)
+
+- `contract-review-br` — revisão contratual (Brasil) orientada por playbook
+- `nda-triage-br` — triagem de NDA com checklist brasileiro
+- `lgpd-compliance` — checklist LGPD para contratos
+- `legal-risk-assessment-br` — framework de classificação de risco jurídico
+- `canned-responses-br` — templates e respostas padronizadas
+- `meeting-briefing-br` — preparação de reuniões jurídicas
+
+### Skills de produtividade (terceiros)
+
+- `ms-office-suite:pdf` — processamento de PDFs (leitura, criação, merge, formulários, OCR)
+- `ms-office-suite:docx` — criação, edição e análise de documentos Word
+- `ms-office-suite:pptx` — criação e edição de apresentações PowerPoint
+- `ms-office-suite:xlsx` — criação, edição e análise de planilhas Excel
+- `internal-comms` — comunicações internas (3P updates, newsletters, FAQs)
+- `content-research-writer` — assistente de pesquisa e redação de conteúdo
+- `family-history-research` — planejamento de pesquisa genealógica e história familiar
 
 ## Estrutura
 
@@ -43,4 +55,17 @@ Foco: acelerar revisão contratual, triagem de NDAs e geração de respostas/bri
 ├── PRD.md
 ├── commands/
 └── skills/
+    ├── contract-review-br/         # Skills jurídicas (pt-BR)
+    ├── nda-triage-br/
+    ├── lgpd-compliance/
+    ├── legal-risk-assessment-br/
+    ├── canned-responses-br/
+    ├── meeting-briefing-br/
+    ├── ms-office-suite:pdf/        # Skills de produtividade (terceiros)
+    ├── ms-office-suite:docx/
+    ├── ms-office-suite:pptx/
+    ├── ms-office-suite:xlsx/
+    ├── internal-comms/
+    ├── content-research-writer/
+    └── family-history-research/
 ```

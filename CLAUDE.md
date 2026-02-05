@@ -28,12 +28,30 @@ Plugin Claude (pt-BR) para automação de fluxos jurídicos brasileiros. Oferece
 │   ├── brief-br.md            # /brief-br — briefing jurídico (diário/tema/incidente)
 │   └── respond-br.md          # /respond-br — respostas padronizadas a partir de templates
 └── skills/                    # Componentes reutilizáveis de conhecimento (YAML frontmatter + markdown)
-    ├── contract-review-br/SKILL.md
+    ├── contract-review-br/SKILL.md       # Skills jurídicas (pt-BR)
     ├── nda-triage-br/SKILL.md
     ├── lgpd-compliance/SKILL.md
     ├── legal-risk-assessment-br/SKILL.md
     ├── canned-responses-br/SKILL.md
-    └── meeting-briefing-br/SKILL.md
+    ├── meeting-briefing-br/SKILL.md
+    ├── ms-office-suite:pdf/              # Skills de produtividade (terceiros)
+    │   ├── SKILL.md
+    │   ├── forms.md
+    │   └── reference.md
+    ├── ms-office-suite:docx/SKILL.md
+    ├── ms-office-suite:pptx/
+    │   ├── SKILL.md
+    │   ├── editing.md
+    │   └── pptxgenjs.md
+    ├── ms-office-suite:xlsx/SKILL.md
+    ├── internal-comms/
+    │   ├── SKILL.md
+    │   └── examples/
+    ├── content-research-writer/SKILL.md
+    └── family-history-research/
+        ├── SKILL.md
+        ├── references/
+        └── assets/templates/
 ```
 
 ## Arquitetura
@@ -50,6 +68,22 @@ Este é um **plugin somente de documentação** — sem código compilado, sem s
 ### Relação entre comandos e skills
 
 Comandos orquestram fluxos de trabalho e usam skills como blocos de construção. Por exemplo, `/review-contract-br` utiliza as skills `contract-review-br`, `lgpd-compliance` e `legal-risk-assessment-br`.
+
+### Skills de terceiros
+
+Além das skills jurídicas nativas (pt-BR), o plugin inclui skills de produtividade de terceiros:
+
+| Skill | Origem | Licença | Uso |
+|---|---|---|---|
+| `ms-office-suite:pdf` | [anthropics/skills](https://github.com/anthropics/skills) | Proprietária (Anthropic) | Processamento de PDFs |
+| `ms-office-suite:docx` | [anthropics/skills](https://github.com/anthropics/skills) | Proprietária (Anthropic) | Documentos Word |
+| `ms-office-suite:pptx` | [anthropics/skills](https://github.com/anthropics/skills) | Proprietária (Anthropic) | Apresentações PowerPoint |
+| `ms-office-suite:xlsx` | [anthropics/skills](https://github.com/anthropics/skills) | Proprietária (Anthropic) | Planilhas Excel |
+| `internal-comms` | [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) | Apache 2.0 | Comunicações internas |
+| `content-research-writer` | [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) | Apache 2.0 | Pesquisa e redação |
+| `family-history-research` | [emaynard/claude-family-history-research-skill](https://github.com/emaynard/claude-family-history-research-skill) | MIT | Pesquisa genealógica |
+
+Estas skills estão em inglês (idioma original) e complementam as skills jurídicas do plugin.
 
 ## Convenções de Formato de Arquivo
 
