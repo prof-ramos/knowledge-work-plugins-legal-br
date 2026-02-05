@@ -55,6 +55,25 @@ Briefing diário/tema/incidente (incl. incidente LGPD com checklist).
 
 Respostas padronizadas com templates do playbook.
 
+## 5.6 Escopo Brasil (regras e referências)
+
+O plugin deve priorizar padrões brasileiros:
+- LGPD (Lei 13.709/2018) e boas práticas de incidentes/operadores/suboperadores
+- Código Civil e práticas contratuais usuais (multa, juros/correção, foro/arbitragem)
+- CDC quando aplicável (ex.: cláusulas potencialmente abusivas)
+
+> Jurisprudência: somente quando houver fonte confiável disponível via conectores/pesquisa; caso contrário, sinalizar como hipótese para validação.
+
+## 6. Skills
+
+Skills principais:
+- `contract-review-br`
+- `nda-triage-br`
+- `lgpd-compliance`
+- `legal-risk-assessment-br`
+- `canned-responses-br`
+- `meeting-briefing-br`
+
 ## 6. Playbook local
 
 Arquivo recomendado: `.claude/legal-br.local.md`

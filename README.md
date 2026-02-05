@@ -24,6 +24,15 @@ Foco: acelerar revisão contratual, triagem de NDAs e geração de respostas/bri
 - `/brief-br` — Briefing jurídico (diário/tema/incidente)
 - `/respond-br` — Respostas padronizadas (templates)
 
+## Skills
+
+- `contract-review-br`
+- `nda-triage-br`
+- `lgpd-compliance`
+- `legal-risk-assessment-br`
+- `canned-responses-br`
+- `meeting-briefing-br`
+
 ## Estrutura
 
 ```

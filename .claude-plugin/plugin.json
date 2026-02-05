@@ -1,7 +1,7 @@
 {
-  "name": "legal-br",
-  "version": "0.1.0",
-  "description": "Automação de fluxos jurídicos no Brasil: revisão contratual, triagem de NDA, LGPD e respostas padronizadas (pt-BR).",
+  "name": "knowledge-work-plugins-legal-br",
+  "version": "0.2.0",
+  "description": "Plugin (pt-BR) para automação de fluxos jurídicos no Brasil: revisão contratual, triagem de NDA, LGPD, briefings e respostas padronizadas.",
   "author": {
     "name": "prof-ramos"
   }
