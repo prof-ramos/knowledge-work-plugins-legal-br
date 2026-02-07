@@ -34,6 +34,7 @@ Plugin Claude (pt-BR) para automação de fluxos jurídicos brasileiros. Oferece
     ├── legal-risk-assessment-br/SKILL.md
     ├── canned-responses-br/SKILL.md
     ├── meeting-briefing-br/SKILL.md
+    ├── admin-law-federal-br/SKILL.md
     ├── ms-office-suite:pdf/              # Skills de produtividade (terceiros)
     │   ├── SKILL.md
     │   ├── forms.md

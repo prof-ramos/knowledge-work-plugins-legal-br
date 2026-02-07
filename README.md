@@ -34,6 +34,7 @@ Foco: acelerar revisão contratual, triagem de NDAs e geração de respostas/bri
 - `legal-risk-assessment-br` — framework de classificação de risco jurídico
 - `canned-responses-br` — templates e respostas padronizadas
 - `meeting-briefing-br` — preparação de reuniões jurídicas
+- `admin-law-federal-br` — direito administrativo federal (PAD e pareceres jurídicos)
 
 ### Skills de produtividade (terceiros)
 
@@ -61,6 +62,7 @@ Foco: acelerar revisão contratual, triagem de NDAs e geração de respostas/bri
     ├── legal-risk-assessment-br/
     ├── canned-responses-br/
     ├── meeting-briefing-br/
+    ├── admin-law-federal-br/
     ├── ms-office-suite:pdf/        # Skills de produtividade (terceiros)
     ├── ms-office-suite:docx/
     ├── ms-office-suite:pptx/
